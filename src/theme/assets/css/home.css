@@ -1,0 +1,66 @@
+.mainButton{
+    background-color: rgb(52, 52, 52);
+        height: 30px;
+        width: 110px;
+        margin: 20px 20px;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 100px;
+    /* border: 1px solid black; */
+}
+.homeHeader {
+    
+    margin-top: 10px;
+    /* position: fixed; */
+    left: 0;
+    top: 60px;
+    width: 100%;
+  }
+  
+  .headerDate {
+    /* margin-top: 60px; */
+    display: flex;
+    align-items: center;
+    /* padding-left: 50px;
+    padding-right: 51px; */
+    justify-content: space-between;
+   
+  }
+  
+  .headerDateMap {
+    border: 1px solid #dee1e6;
+    padding: 11px;
+    border-radius: 23px;
+    background-color: #dee1e6;
+  }
+  
+  .headerDateMap:hover {
+    cursor: pointer;
+  }
+
+  .table-content{
+    border: 1px solid black;
+    border-radius: 15px;
+  }
+  .countryName{
+    text-align: center;
+  }
+ 
+  .matchName {
+    text-align: center;
+    height: 30px;
+    margin: 3px 0;
+}
+.matchName span{
+    padding: 5px;
+}
+.temaname{
+    font-weight: 500;
+}
+.matctime{
+    color: #9b9b9b;
+}
+.countryName{
+    background-color: red;
+    color: white;
+}
