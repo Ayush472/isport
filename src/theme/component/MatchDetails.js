@@ -44,12 +44,13 @@ export default function MatchDetails() {
     }
   }, [data, MarketList, legList]);
   useEffect(() => {
-    if (builderdata && selectedMarketValue && selectedLegValue) {
+    if (builderdata) {
       const buildertable = builderdata?.data;
+      console.log(buildertable);
       setBetsData(buildertable);
     }
-    console.log(betsData, "betsData");
   }, [builderdata]);
+  console.log(betsData, builderdata, "betsData");
   const handleMarketChange = (event) => {
     setSelectedMarketValue(event.target.value);
   };
@@ -147,35 +148,45 @@ export default function MatchDetails() {
           </div>
         </div>
       </div>
+      {betsData && betsData.TotalOdds && (
+          <div style={{textAlign:"center",fontWeight:"bold",fontSize:"20px",marginTop:"20px"}}>
+            <span>Bet Builder Odds</span>
 
+            <span>{betsData.TotalOdds}</span>
+          </div>
+        )}
+        <div>
       <div className="tableData">
-        {betsData &&
-          betsData.BetBuilderSelections &&
-          betsData.BetBuilderSelections.length > 0 && (
-            <table>
-              <thead>
-                <tr>
-                  <th>Pick</th>
-                  <th>Market</th>
-                  <th>Sub Market</th>
-                  <th>Outcome</th>
-                  <th>Key State</th>
-                </tr>
-              </thead>
-              <tbody>
-                {/* Render the table rows based on betsData */}
-                {betsData.BetBuilderSelections.map((bet, index) => (
-                  <tr key={index}>
-                    <td>{index}</td>
-                    <td>{bet.Market}</td>
-                    <td>{bet.Odds.Decimal}</td>
-                    <td>{bet.Selection}</td>
-                    <td>{bet.RTB}</td>
+        
+          {" "}
+          {betsData &&
+            betsData.BetBuilderSelections &&
+            betsData.BetBuilderSelections.length > 0 && (
+              <table>
+                <thead>
+                  <tr>
+                    <th>Pick</th>
+                    <th>Market</th>
+                    <th>Sub Market</th>
+                    <th>Outcome</th>
+                    <th>Key State</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          )}
+                </thead>
+                <tbody>
+                  {/* Render the table rows based on betsData */}
+                  {betsData.BetBuilderSelections.map((bet, index) => (
+                    <tr key={index}>
+                      <td>{index}</td>
+                      <td>{bet.Market}</td>
+                      <td>{bet.Odds.Decimal}</td>
+                      <td>{bet.Selection}</td>
+                      <td>{bet.RTB}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
+        </div>
       </div>
     </div>
   );
